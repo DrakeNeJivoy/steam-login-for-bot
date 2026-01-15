@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query, Request
 from fastapi.responses import RedirectResponse
 from urllib.parse import urlparse, urlencode
 import requests
+import re
 
 STEAM_OPENID_URL = "https://steamcommunity.com/openid/login"
 BOT_USERNAME = "nj_steam_checker_bot"  # имя твоего Telegram бота
