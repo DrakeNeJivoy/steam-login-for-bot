@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query, Request
+from fastapi import FastAPI, Query, Request, requests
 from fastapi.responses import RedirectResponse
 from urllib.parse import urlparse, urlencode
 
