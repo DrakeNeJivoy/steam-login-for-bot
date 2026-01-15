@@ -1,4 +1,4 @@
-app = "steam-login-for-bot-jxcgig"
+app = "steam-login-for-bot.fly.dev"
 
 [env]
 PORT = "8080"

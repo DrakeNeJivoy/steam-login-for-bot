@@ -4,7 +4,7 @@ from urllib.parse import urlparse, urlencode
 
 STEAM_OPENID_URL = "https://steamcommunity.com/openid/login"
 BOT_USERNAME = "nj_steam_checker_bot"  # имя твоего Telegram бота
-BASE_URL = "https://steam-login-for-bot-jxcgig.fly.dev/"  # публичный URL FastAPI
+BASE_URL = "https://steam-login-for-bot.fly.dev"  # публичный URL FastAPI
 
 app = FastAPI()
 
