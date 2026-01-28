@@ -11,8 +11,8 @@ BASE_URL = "https://steam-login-for-bot.fly.dev"  # публичный URL FastA
 app = FastAPI()
 
 @app.get("/steam/login")
-async def steamlogin(tg_id: int = Query(..., description="Telegram user ID")):
-    return_to = f"{BASE_URL}/steam/callback?tg_id={tg_id}"
+async def steamlogin():
+    return_to = f"{BASE_URL}/steam/callback"
 
     params = {
         "openid.ns": "http://specs.openid.net/auth/2.0",
@@ -27,7 +27,7 @@ async def steamlogin(tg_id: int = Query(..., description="Telegram user ID")):
     return RedirectResponse(steam_url)
 
 @app.get("/steam/callback")
-async def steamcallback(request: Request, tg_id: int):
+async def steamcallback(request: Request):
     params = dict(request.query_params)
 
     params_check = params.copy()
@@ -43,5 +43,5 @@ async def steamcallback(request: Request, tg_id: int):
         return {"error": "SteamID not found"}
     steam_id = match.group(1)
 
-    deep_link = f"https://t.me/{BOT_USERNAME}?start=steamlinked_{steam_id}_{tg_id}"
+    deep_link = f"https://t.me/{BOT_USERNAME}?start=steamlinked_{steam_id}"
     return RedirectResponse(deep_link)
